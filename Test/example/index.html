@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+</head> 
+
+<body id="" class=""> 
+  <div id="wrapper">
+    <a href="#" id="load">Load Assets</a>
+  </div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
+<script type="text/javascript" src="../Assets/MooTools-more.js"></script>
+<script type="text/javascript" src="../../Source/MooTools-Asset.css-patch/Source/Asset.css.js"></script>
+<script type="text/javascript" src="../../Source/Asset.Extras.js"></script>
+<script type="text/javascript">
+window.addEvent('domready',function() {
+
+  $('load').addEvent('click',function(event) {
+    event.stop();
+
+    var assets = ['http://plugins/MooTools-Asset.Extras/Test/example/asset.css','./asset.js?12','./asset2.js?1'];
+
+    Asset.load(assets,{
+
+      onLoad : function(asset,options) {
+        alert(asset + ' load');
+      },
+
+      onError : function(asset,options) {
+        alert(asset + ' error');
+      },
+
+      onProgress : function(asset,options) {
+        alert(asset + ' complete');
+      },
+
+      onReady : function(assets) {
+        alert('done');
+      }
+
+    });
+  });
+
+});
+</script>
+</body>
+</html> 
